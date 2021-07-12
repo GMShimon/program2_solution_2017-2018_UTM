@@ -115,8 +115,19 @@ class Reactangle:public Shape{
 			cout<<"Rectangle's area = "	<<getArea()<<endl;
 		}
 };
-
-int main(){
+int display(){
+	int choice;
+		//menu 
+		cout<<"==========[MENU]============"<<endl;
+		cout<<"1. Add a shape"<<endl;
+		cout<<"2. Print all shapes"<<endl;
+		cout<<"3. Calculate total area"<<endl;
+		cout<<"4. Exit"<<endl<<endl;
+		cout<<"Your choice => ";	
+		cin>>choice;
+		return choice;
+}
+void calculation(){
 	Shape *s; //pointer of class Shape
 	Reactangle r[size];//array of object of Reactangle class
 	Circle c1[size]; //array of Circle class
@@ -125,14 +136,7 @@ int main(){
 	double totalArea=0.0;//hold the total area od all shapes
 	int choice,choice2;
 	while(true){
-			//menu 
-		cout<<"==========[MENU]============"<<endl;
-		cout<<"1. Add a shape"<<endl;
-		cout<<"2. Print all shapes"<<endl;
-		cout<<"3. Calculate total area"<<endl;
-		cout<<"4. Exit"<<endl<<endl;
-		cout<<"Your choice => ";	
-		cin>>choice;
+		choice=display();
 		cout<<endl<<endl;
 		if(choice==1){
 			cout<<"What type of shape you want to enter?"<<endl;
@@ -140,6 +144,7 @@ int main(){
 			cout<<"2. Rectangle"<<endl<<endl;
 			cout<<"Your choice => ";
 			cin>>choice2;
+			flag[i]=0;
 			if(choice2==1){
 				s=&c1[i];
 				s->read();
@@ -188,5 +193,8 @@ int main(){
 			exit(1);
 	i++;	
 	}//end of while loop
+}
+int main(){
+	calculation();
 }
 
